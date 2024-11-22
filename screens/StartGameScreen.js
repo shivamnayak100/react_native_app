@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, TextInput, Alert } from 'react-native';
+import { View, StyleSheet, TextInput, Alert, Text } from 'react-native';
 import PrimaryButton from '../components/PrimaryButton';
 
 function StartGameScreen() {
@@ -30,6 +30,7 @@ function StartGameScreen() {
 
   return (
     <View style={styles.screen}>
+      <Text style = {styles.textStyle}> Hello, This is a Super Game</Text>
       <TextInput
         style={styles.numberInput}
         keyboardType="number-pad"
@@ -59,6 +60,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
   },
+  textStyle:{
+    fontFamily: 'open-sans-bold'
+  }
 });
 
 export default StartGameScreen;
