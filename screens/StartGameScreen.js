@@ -31,7 +31,12 @@ function StartGameScreen() {
   };
 
   const navigateToNextScreen = () => {
-    navigation.navigate('NavigationScreen', { enteredNumber: 100 }); 
+    navigation.navigate('NavigationScreen', { id: 100, name: 'Shivam'}); 
+
+    // We can also set a Option from here 
+    navigation.setOptions({
+      title:"Nayak Navigation"
+    })
   };
 
   return (
@@ -49,8 +54,8 @@ function StartGameScreen() {
       <PrimaryButton>Confirm</PrimaryButton>
       <Button
           onPress={navigateToNextScreen}
-          title="Hello Nayak"
-          color="#841584"
+          title="Click to Navigate"
+          color="#6200ee"
           accessibilityLabel="Learn more about this purple button"
         />
     </ImageBackground>

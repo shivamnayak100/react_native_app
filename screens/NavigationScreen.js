@@ -1,12 +1,13 @@
 import { View, Text } from "react-native";
 
 function NavigationScreen({route}){
-    const { enteredNumber } = route.params; 
-    
+    const id = route.params.id; 
+    const name = route.params.name;
+
 
     return (
         <View>
-                <Text>Hello, Nayak Navigation, {enteredNumber}</Text>
+                <Text>Hello, Nayak Navigation, {id}, {name}</Text>
         </View>
     );
 

@@ -25,10 +25,17 @@ export default function App() {
           <Stack.Screen
             name="StartGameScreen"
             component={StartGameScreen}
+            options={{
+                title: "Initial Screen"
+              }
+            }
           />
           <Stack.Screen
             name="NavigationScreen"
             component={NavigationScreen}
+            options={{
+              title: "Navigation Screen"
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>
