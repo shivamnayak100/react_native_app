@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, TextInput, Alert, Text } from 'react-native';
+import { View, StyleSheet, TextInput, Alert, Text, Button, ImageBackground } from 'react-native';
 import PrimaryButton from '../components/PrimaryButton';
+import { useNavigation } from '@react-navigation/native';
 
 function StartGameScreen() {
   const [enterNumber, setEnterNumber] = useState('');
+  const navigation = useNavigation();
 
   const numberInputHandler = (input) => {
     console.log("Entered number:", input);
@@ -28,8 +30,13 @@ function StartGameScreen() {
     }
   };
 
+  const navigateToNextScreen = () => {
+    navigation.navigate('NavigationScreen', { enteredNumber: 100 }); 
+  };
+
   return (
     <View style={styles.screen}>
+      <ImageBackground style= {styles.container} source= {require('../assets/splash-icon.png')} resizeMethod='auto'>
       <Text style = {styles.textStyle}> Hello, This is a Super Game</Text>
       <TextInput
         style={styles.numberInput}
@@ -40,6 +47,13 @@ function StartGameScreen() {
       />
       <PrimaryButton>Reset</PrimaryButton>
       <PrimaryButton>Confirm</PrimaryButton>
+      <Button
+          onPress={navigateToNextScreen}
+          title="Hello Nayak"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
+    </ImageBackground>
     </View>
   );
 }

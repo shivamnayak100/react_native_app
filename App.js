@@ -1,8 +1,12 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, ImageBackground } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import StartGameScreen from './screens/StartGameScreen';
+import NavigationScreen from './screens/NavigationScreen';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
+import { NavigationContainer } from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+const Stack = createNativeStackNavigator();
 
 export default function App() {
  const [fontsLoaded]= useFonts({
@@ -16,9 +20,18 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ImageBackground style= {styles.container} source= {require('./assets/splash-icon.png')} resizeMethod='auto'>
-       <StartGameScreen />
-      </ImageBackground>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="StartGameScreen">
+          <Stack.Screen
+            name="StartGameScreen"
+            component={StartGameScreen}
+          />
+          <Stack.Screen
+            name="NavigationScreen"
+            component={NavigationScreen}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
   );
 }
