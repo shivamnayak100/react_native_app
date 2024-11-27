@@ -31,7 +31,7 @@ function StartGameScreen() {
   };
 
   const navigateToNextScreen = () => {
-    navigation.navigate('NavigationScreen', { id: 100, name: 'Shivam'}); 
+    navigation.navigate('NavigationScreen', { id: 100, name: 'Shivam', navigation: navigation}); 
 
     // We can also set a Option from here 
     navigation.setOptions({

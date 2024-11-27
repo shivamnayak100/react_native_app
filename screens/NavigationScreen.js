@@ -1,8 +1,23 @@
-import { View, Text } from "react-native";
+import { View, Text, Button} from "react-native";
+import { useLayoutEffect} from "react";
 
-function NavigationScreen({route}){
+function NavigationScreen({route, navigation}){
     const id = route.params.id; 
     const name = route.params.name;
+
+    function onPressed(){
+        console.log("Hello Nayak ");
+    }
+
+    useLayoutEffect(() =>{
+        navigation.setOptions({
+            headerRight: () =>{
+                return <Button title="Tap Me" onPress={onPressed}/>
+            }
+        });
+    },[])
+
+
 
 
     return (
